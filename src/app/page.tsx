@@ -1,38 +1,60 @@
-"use client";
-
-import Link from "next/link";
-import { signIn, signOut, useSession } from "next-auth/react";
-
-export default function Home() {
-  const session = useSession();
+import getUserData from "@/lib/getUserData";
+import { Button } from "@/components/Button";
+export default async function Home() {
+  const session = await getUserData();
   console.log(session);
   return (
     <div>
-      {session.data && (
+      {session && (
         <div className=" flex justify-between px-4 py-3 border-b-2 border-slate-700">
-          <h2 className=" font-bold text-2xl">{session.data.user?.name}</h2>
-          <button
-            onClick={() => signOut()}
-            className="border-b-2 bg-slate-900 border-white p-2 rounded-xl hover:font-semibold hover:border-green-600"
-          >
-            Log Out
-          </button>
+          <h2 className=" font-bold text-2xl">{session.user?.name}</h2>
+          <Button name="logout" />
         </div>
       )}
-      {!session.data && (
+      {!session && (
         <div className=" flex justify-between px-4 py-3 border-b-2 border-slate-700">
           <h2 className=" font-bold text-2xl">My App</h2>
-          <button
-            onClick={() => signIn()}
-            className="border-b-2 bg-slate-900 border-white p-2 rounded-xl hover:font-semibold hover:border-green-600"
-          >
-            Sign In
-          </button>
+          <Button name="signin" />
         </div>
       )}
     </div>
   );
 }
+
+// "use client";
+// import { signIn, signOut, useSession } from "next-auth/react";
+
+// export default function Home() {
+//   const session = useSession();
+//   console.log(session);
+//   return (
+//     <div>
+//       {session.data && (
+//         <div className=" flex justify-between px-4 py-3 border-b-2 border-slate-700">
+//           <h2 className=" font-bold text-2xl">{session.data.user?.name}</h2>
+//           <button
+//             onClick={() => signOut()}
+//             className="border-b-2 bg-slate-900 border-white p-2 rounded-xl hover:font-semibold hover:border-green-600"
+//           >
+//             Log Out
+//           </button>
+//         </div>
+//       )}
+//       {!session.data && (
+//         <div className=" flex justify-between px-4 py-3 border-b-2 border-slate-700">
+//           <h2 className=" font-bold text-2xl">My App</h2>
+
+//           <button
+//             onClick={() => signIn()}
+//             className="border-b-2 bg-slate-900 border-white p-2 rounded-xl hover:font-semibold hover:border-green-600"
+//           >
+//             Sign In
+//           </button>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
 
 // import { authOptions } from "@/lib/auth";
 // import { getServerSession } from "next-auth";
