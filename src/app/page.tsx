@@ -7,7 +7,9 @@ export default async function Home() {
     <div>
       {session && (
         <div className=" flex justify-between px-4 py-3 border-b-2 border-slate-700">
-          <h2 className=" font-bold text-2xl">{session.user?.name}</h2>
+          <h2 className=" font-bold text-2xl">
+            {session.user?.name || session.user?.email?.split("@")[0]}
+          </h2>
           <Button name="logout" />
         </div>
       )}

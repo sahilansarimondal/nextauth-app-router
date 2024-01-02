@@ -2,6 +2,14 @@
 // import { getServerSession } from "next-auth";
 // import { signIn, signOut } from "next-auth/react";
 
+export default function ServerSidePage() {
+  return (
+    <div className="flex justify-center items-center min-h-screen">
+      This is a demo page
+    </div>
+  );
+}
+
 // export default function Ssr({ session }) {
 //   console.log(session);
 //   return (
