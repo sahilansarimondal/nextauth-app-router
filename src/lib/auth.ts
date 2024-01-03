@@ -1,7 +1,6 @@
 import Github from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
-import { Provider } from "next-auth/providers/index";
 import { NextAuthOptions } from "next-auth";
 import { connect } from "./dbConnect";
 import { User } from "@/models/userModel";
