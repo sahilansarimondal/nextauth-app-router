@@ -1,8 +1,11 @@
+"use client";
 import getUserData from "@/lib/getUserData";
 import { Button } from "@/components/Button";
-export default async function Home() {
-  const session = await getUserData();
-  console.log(session);
+import { getSession, useSession } from "next-auth/react";
+import { authOptions } from "@/lib/auth";
+export default function Home() {
+  // const session = await getUserData();
+  const { data: session } = useSession();
   return (
     <div>
       {session && (
@@ -10,6 +13,7 @@ export default async function Home() {
           <h2 className=" font-bold text-2xl">
             {session.user?.name || session.user?.email?.split("@")[0]}
           </h2>
+          <h2> {session.customField || "Nothing"}</h2>
           <Button name="logout" />
         </div>
       )}
