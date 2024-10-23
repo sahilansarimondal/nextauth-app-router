@@ -42,3 +42,4 @@ another line in main
 made some changes
 changes from conflict branch
 line two form main
+line three from main
