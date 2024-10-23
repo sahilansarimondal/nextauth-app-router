@@ -38,6 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 # nextauth-app-router
 
 new line added in main
-another line in main
-line two form main
-line three from main
+I think this line is only needed
