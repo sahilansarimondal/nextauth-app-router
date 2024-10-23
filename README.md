@@ -37,7 +37,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # nextauth-app-router
 
-new line added in main
-another line in main
+new change from rebase
+another
 made some changes
 change two form rebase
